@@ -1,0 +1,19 @@
+
+
+
+.contenedor {
+   text-align: center;
+   background-image: url("https://www.miradorprovincial.com/um/fotos/463818_argentina_francia_festejo_messi_copa_1024_x_680.jpg");
+background-repeat: no-repeat ;
+background-size:cover;
+
+};
+
+.contenedorcarta {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ background-color: black
+};
+
+

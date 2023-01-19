@@ -1,0 +1,19 @@
+
+
+
+.contenedor {
+    display: flex;
+    justify-content: end;
+    padding: 2rem;
+    
+    background-color: rgb(1, 141, 210);
+   };
+
+
+   .contenedor123 {
+  
+background-color: #00ffff;
+    background-color: black
+   };
+
+ 

@@ -1,0 +1,9 @@
+
+
+
+.contenedor {
+  margin-bottom: 5rem;
+  display: grid ;
+  /*grid-template-columns: auto auto auto*/
+  justify-content: center
+ };

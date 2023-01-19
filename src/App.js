@@ -1,25 +1,60 @@
-import logo from './logo.svg';
-import './App.css';
+import styles from './App.module.css';
+import Cards from './components/Cards.jsx'
+import SearchBar from './components/SearchBar.jsx'
+import Nav from './components/Nav';
+import { useState } from 'react';
 
-function App() {
+function App () {
+
+  const [characters, setCharacters]=useState ( [  ]  )
+
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   
+    <div className={styles.contenedor}>   
+       <Nav onSearch={onSearch}/>
+    <div > 
+      <Cards onClose={onClose} characters ={characters}/> 
+      </div>
+      </div>
+  )
+
+  
+  function onSearch(id){
+   if (characters.some(character => character.id === Number(id))){
+      window.alert('ya esta en la lista');
+    /*  fetch(`https://rickandmortyapi.com/api/character/${Number(id)}`)
+      .then((response) => response.json())
+      .then((data) => {
+         if (data.name) {
+            setCharacters((oldChars) => [...oldChars, data]);
+         } else {
+            window.alert('No hay personajes con ese ID');
+         }
+      });*/
+   }else{   
+      fetch(`https://rickandmortyapi.com/api/character/${id}`)
+      .then((response) => response.json())
+      .then((data) => {
+         if (data.name) {
+            setCharacters((oldChars) => [...oldChars, data]);
+         } else {
+            window.alert('No hay personajes con ese ID');
+         }
+      });
+     
+   }
+
+  }
+
+  function onClose(id){
+   setCharacters(    
+   characters.filter(characters =>  characters.id !== id)   
+   )
+   console.log("hola");
+  }
+
 }
 
-export default App;
+
+export default App
